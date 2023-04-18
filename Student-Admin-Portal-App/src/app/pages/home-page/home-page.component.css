@@ -1,0 +1,13 @@
+.container-form {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: end;
+}
+input {
+  width: 10rem;
+  /* height: 36px;
+  border-radius: 4px; */
+}

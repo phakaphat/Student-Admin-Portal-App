@@ -56,8 +56,6 @@ export class EditPageComponent {
   onSubmit() {
     if (this.studentForm.valid) {
       const value = this.studentForm.value;
-      console.log(value);
-      console.log(this.data.data.id);
       this.studentService.putStudent(this.data.data.id, value).subscribe({
         next: (val: any) => {
           alert('Student updated successfully');

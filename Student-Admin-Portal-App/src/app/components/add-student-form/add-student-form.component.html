@@ -1,0 +1,63 @@
+<div mat-dialog-title>
+  <h1>Student Form</h1>
+</div>
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row1">
+      <mat-form-field appearance="outline">
+        <mat-label>First name</mat-label>
+        <input matInput type="text" formControlName="firstName" formControlName="firstName"/>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" formControlName="lastName" formControlName="lastName"/>
+      </mat-form-field>
+    </div>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Date of birth</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" />
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+    <div class="row1">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" formControlName="email"/>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Mobile</mat-label>
+        <input matInput type="text" formControlName="mobile" formControlName="mobile"/>
+      </mat-form-field>
+    </div>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>genders</mat-label>
+      <mat-select formControlName="genders">
+        <mat-option *ngFor="let val of genders" [value]="val.id"
+          >{{ val.decription }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Physical Address</mat-label>
+      <textarea matInput formControlName="physicalAddress"></textarea>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Postal Address</mat-label>
+      <textarea matInput formControlName="postalAddress"></textarea>
+    </mat-form-field>
+  </div>
+  
+  <div mat-dialog-actions>
+    <button mat-raised-button type="button" [mat-dialog-close]="false">
+      Cancel
+    </button>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  </div>
+</form>

@@ -10,37 +10,44 @@
     placeholder="Search Student"
     #input
   />
-  <button mat-raised-button color="primary">Add New Student</button>
+  <button mat-raised-button color="primary" (click)="openAddForm()">Add New Student</button>
 </div>
 
-<div class="mat-elevation-z8">
+<div class="mat-elevation-z8 m-4">
   <table mat-table [dataSource]="dataSource">
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef>No.</th>
-      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
-      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
     </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef>Weight</th>
-      <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+    <ng-container matColumnDef="dateOfBtrth">
+      <th mat-header-cell *matHeaderCellDef>Date Of Birth</th>
+      <td mat-cell *matCellDef="let element">{{ element.dateOfBirth | date }}</td>
     </ng-container>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef>Symbol</th>
-      <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="mobile">
+      <th mat-header-cell *matHeaderCellDef>Mobile</th>
+      <td mat-cell *matCellDef="let element">{{ element.mobile }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef>Gender</th>
+      <td mat-cell *matCellDef="let element">{{ element.genderId == 1 ? 'Male' : 'Female'}}</td>
     </ng-container>
 
     <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+      <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let row">
         <button mat-icon-button color="primary" (click)="openEditForm(row)">
           <mat-icon>edit</mat-icon>
@@ -50,6 +57,7 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    
   </table>
 
   <mat-paginator

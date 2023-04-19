@@ -2,7 +2,7 @@ export interface StudentTable {
   id: number;
   firstName: string;
   lastName: string;
-  dateOfBtrth: number;
+  dateOfBirth: number | Date | string;
   email: string;
   mobile: number;
   profileimageUrl: string;

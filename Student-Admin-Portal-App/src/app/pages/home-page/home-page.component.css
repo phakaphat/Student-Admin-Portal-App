@@ -11,3 +11,11 @@ input {
   /* height: 36px;
   border-radius: 4px; */
 }
+.action {
+  display: flex;
+  gap: 5px;
+}
+
+mat-form-field {
+  width: 100%;
+}

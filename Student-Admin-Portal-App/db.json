@@ -1,0 +1,67 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "Genders": [
+    {
+      "id": 1,
+      "decription": "Male"
+    },
+    {
+      "id": 2,
+      "decription": "Female"
+    }
+  ],
+  "Student": [
+    {
+      "firstName": "first2",
+      "lastName": "last2",
+      "dateOfBirth": "2023-04-05T17:00:00.000Z",
+      "email": "test2@email.com",
+      "mobile": "1234567890",
+      "profileimageUrl": "",
+      "genderId": 1,
+      "physicalAddress": "1243/12",
+      "postalAddress": "123456",
+      "id": 1
+    },
+    {
+      "firstName": "first3",
+      "lastName": "last3",
+      "dateOfBirth": "2023-04-12T17:00:00.000Z",
+      "email": "test3@email.com",
+      "mobile": "0987654321",
+      "profileimageUrl": "",
+      "genderId": 2,
+      "physicalAddress": "124/45",
+      "postalAddress": "65480",
+      "id": 2
+    },
+    {
+      "firstName": "hyvhb",
+      "lastName": "shtsth",
+      "dateOfBirth": "2023-03-14T17:00:00.000Z",
+      "email": "hstr@email.com",
+      "mobile": "11111111111",
+      "profileimageUrl": "",
+      "genderId": 1,
+      "physicalAddress": "135315",
+      "postalAddress": "631616",
+      "id": 3
+    }
+  ]
+}

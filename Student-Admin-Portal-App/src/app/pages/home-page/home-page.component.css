@@ -19,3 +19,8 @@ input {
 mat-form-field {
   width: 100%;
 }
+.testImg {
+  width: 32px;
+  height: 32px;
+  background-color: black;
+}

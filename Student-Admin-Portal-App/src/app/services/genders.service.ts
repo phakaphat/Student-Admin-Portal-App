@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class GendersService {
 
-  baseUrl = 'http://localhost:3000/Genders/'
+  baseUrl = 'https://dev.tks.co.th/studentapi/Genders/'
   constructor(private http: HttpClient) { }
 
   getGenders(): Observable<any>{

@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class StudentService {
-  baseUrl = 'http://localhost:3000/Student/'
+  baseUrl = 'https://dev.tks.co.th/studentapi/Students/'
   constructor(private http: HttpClient) { }
 
   postStudent(data: any): Observable<any>{
-    return this.http.post(this.baseUrl, data);
+    return this.http.post(this.baseUrl + 'Add', data);
   }
 
   getStudent(): Observable<any>{

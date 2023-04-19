@@ -16,7 +16,6 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./add-student-form.component.css'],
 })
 export class AddStudentFormComponent implements OnInit {
-
   studentForm = new FormGroup({
     firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),
@@ -57,7 +56,6 @@ export class AddStudentFormComponent implements OnInit {
   onSubmit() {
     if (this.studentForm.valid) {
       const value = this.studentForm.value;
-
       this.studentService
         .postStudent({
           firstName: value.firstName,
@@ -65,7 +63,6 @@ export class AddStudentFormComponent implements OnInit {
           dateOfBirth: value.dateOfBirth,
           email: value.email,
           mobile: value.mobile,
-          profileimageUrl: '',
           genderId: value.genders,
           physicalAddress: value.physicalAddress,
           postalAddress: value.postalAddress,
@@ -84,8 +81,8 @@ export class AddStudentFormComponent implements OnInit {
 
   getGenders() {
     this.gendersService.getGenders().subscribe({
-      next: (res: any) => {
-        this.genders = res
+      next: (res: Genders[]) => {
+        this.genders = res;
       },
       error: (err: any) => {
         console.error(err);

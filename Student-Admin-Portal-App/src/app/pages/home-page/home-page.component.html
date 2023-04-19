@@ -48,8 +48,8 @@
 
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let row">
-        <button mat-icon-button color="primary" (click)="openEditForm(row)">
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="navigateWithState(element)">
           <mat-icon>edit</mat-icon>
         </button>
       </td>
@@ -67,4 +67,3 @@
   >
   </mat-paginator>
 </div>
-<!-- <img src="Resources\\Images\\fbede153-ca60-46ed-a658-dd220b6f7518.jpg" alt="" srcset="" class="testImg"> -->

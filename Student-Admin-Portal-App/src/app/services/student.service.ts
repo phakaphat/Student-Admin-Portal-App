@@ -21,4 +21,17 @@ export class StudentService {
   getStudent(): Observable<any> {
     return this.http.get(this.baseUrl);
   }
+
+  uploadImage(id: string, file: File):Observable<any> {
+    const formData = new FormData();
+    formData.append("profileImage", file);
+
+    return this.http.post(this.baseUrl + `${id}/upload-image`, formData, {
+      responseType: 'text'
+    })
+  }
+
+  getImage(path: string) {
+    return `https://dev.tks.co.th/studentapi/${path}`;
+  }
 }

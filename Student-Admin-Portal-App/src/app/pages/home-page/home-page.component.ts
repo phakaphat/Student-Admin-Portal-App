@@ -4,7 +4,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { NavigationExtras, Router } from '@angular/router';
-import { AddStudentFormComponent } from 'src/app/components/add-student-form/add-student-form.component';
 import { Student } from 'src/app/interfaces/student';
 import { StudentService } from 'src/app/services/student.service';
 
@@ -52,24 +51,13 @@ export class HomePageComponent {
     }
   }
 
-  openAddForm() {
-    const dialogRef = this._dialog.open(AddStudentFormComponent);
-    dialogRef.afterClosed().subscribe({
-      next: (val) => {
-        if (val) {
-          this.getStudent();
-        }
-      },
-    });
-  }
-
-  navigateWithState(data: any) {
+  navigateWithState(active: string, data: any) {
     const navigationExtras: NavigationExtras = {
       state: {
         data,
       },
     };
-    this.router.navigate(['/edit'], navigationExtras);
+    this.router.navigate([`/student/${active}`], navigationExtras);
   }
 
   getStudent() {

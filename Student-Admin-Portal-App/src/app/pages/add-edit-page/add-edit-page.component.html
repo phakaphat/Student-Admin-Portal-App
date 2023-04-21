@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <h2 class="m-0">Edit Student</h2>
+  <h2 class="m-0">{{ header }}</h2>
 </mat-toolbar>
 
 <div class="w-100">
@@ -13,13 +13,8 @@
       <mat-icon class="customIconSize">keyboard_arrow_left</mat-icon>Go Back
     </button>
   </div>
-
-  <form
-    class="d-flex flex-row gap-3 px-4"
-    [formGroup]="studentForm"
-    (ngSubmit)="onSubmit()"
-  >
-    <div class="w-50">
+  <div class="d-flex flex-row gap-3 px-4">
+    <form class="w-50" [formGroup]="studentForm" (ngSubmit)="onSubmit()">
       <div class="row1">
         <mat-form-field appearance="outline">
           <mat-label>First name</mat-label>
@@ -84,8 +79,11 @@
       </mat-form-field>
 
       <div class="d-flex justify-content-between">
-        <button mat-raised-button color="primary" type="submit">Save</button>
+        <button mat-raised-button color="primary" type="submit">
+          {{ active == "edit" ? "Save" : "Add" }}
+        </button>
         <button
+          *ngIf="active === 'edit'"
           mat-raised-button
           color="warn"
           type="button"
@@ -94,18 +92,18 @@
           Delete
         </button>
       </div>
-    </div>
-
+    </form>
     <div
+      *ngIf="active === 'edit'"
       class="w-50 d-flex flex-column justify-content-start align-items-center gap-3"
     >
       <div class="avatar">
         <img [src]="displayProfileImageUrl" alt="Profile Image" />
       </div>
-      <input hidden type="file" #imageUpload (click)="uploadImage($event)" />
+      <input hidden type="file" #imageUpload (change)="uploadImage($event)" />
       <button mat-raised-button color="primary" (click)="imageUpload.click()">
         Change Image
       </button>
     </div>
-  </form>
+  </div>
 </div>

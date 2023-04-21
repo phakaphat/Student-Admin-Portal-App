@@ -7,11 +7,11 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { EditPageComponent } from './pages/edit-page/edit-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { AddStudentFormComponent } from './components/add-student-form/add-student-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AddEditPageComponent } from './pages/add-edit-page/add-edit-page.component';
 @NgModule({
-  declarations: [AppComponent, HomePageComponent, EditPageComponent, AddStudentFormComponent],
+  declarations: [AppComponent, HomePageComponent, EditPageComponent, AddEditPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

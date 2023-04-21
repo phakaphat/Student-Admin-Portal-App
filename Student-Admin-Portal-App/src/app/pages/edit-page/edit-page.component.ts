@@ -13,11 +13,13 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class EditPageComponent {
   data: any;
+  displayProfileImageUrl = '';
   genders: Genders[] = [];
   studentForm!: FormGroup;
 
   ngOnInit(): void {
     this.getGenders();
+    this.setImage();
     this.studentForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', [Validators.required]],
@@ -53,6 +55,7 @@ export class EditPageComponent {
   goBack() {
     this.location.back();
   }
+  
   onSubmit() {
     if (this.studentForm.valid) {
       const value = this.studentForm.value;
@@ -63,11 +66,11 @@ export class EditPageComponent {
         },
         error: (err: any) => {
           console.error(err);
-        }
-      })
+        },
+      });
     }
   }
-  
+
   onDelete() {
     this.studentService.deleteStudent(this.data.data.id).subscribe({
       next: (val: any) => {
@@ -75,10 +78,35 @@ export class EditPageComponent {
         this.location.back();
       },
       error(err: any) {
-          console.log(err);
-          
+        console.log(err);
       },
-    })
+    });
+  }
+
+  uploadImage(e: any): void {
+    if (this.data.data.id) {
+      const file: File = e.target.files[0];
+      this.studentService.uploadImage(this.data.data.id, file).subscribe({
+        next: (res: any) => {
+          this.data.data.profileImageUrl = res;
+          this.setImage();
+        },
+        error: (err: any) => {
+          console.log(err);
+        },
+      });
+    }
+  }
+
+  setImage() {
+    if (this.data.data.profileImageUrl) {
+      this.displayProfileImageUrl = this.studentService.getImage(
+        this.data.data.profileImageUrl
+      );
+    } else {
+      this.displayProfileImageUrl =
+        '../../../assets/images/36fa7b46c58c94ab0e5251ccd768d669.jpg';
+    }
   }
 
   getGenders() {

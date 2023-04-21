@@ -10,7 +10,7 @@
     placeholder="Search Student"
     #input
   />
-  <button mat-raised-button color="primary" (click)="openAddForm()">Add New Student</button>
+  <button mat-raised-button color="primary" (click)="navigateWithState('add', null)">Add New Student</button>
 </div>
 
 <div class="mat-elevation-z8 m-4">
@@ -49,7 +49,7 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <button mat-icon-button color="primary" (click)="navigateWithState(element)">
+        <button mat-icon-button color="primary" (click)="navigateWithState('edit', element)">
           <mat-icon>edit</mat-icon>
         </button>
       </td>
